@@ -3,7 +3,7 @@ from decimal import Decimal
 
 
 class Customer(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=100)
     nickname = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=20, blank=True, null=True)
