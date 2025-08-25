@@ -1,12 +1,14 @@
+
+from datetime import datetime
+import requests
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
-import datetime
 
 from celery import shared_task
 
 @shared_task
 def generate_crm_report():
-    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     log_file = '/tmp/crm_report_log.txt'
     try:
         transport = RequestsHTTPTransport(
